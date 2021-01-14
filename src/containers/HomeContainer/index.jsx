@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
+import styled from 'styled-components';
+
 
 function HomeContainer() {
 
@@ -34,7 +36,7 @@ function HomeContainer() {
     return(
       <p>Loading...</p>
     );
-  }
+  };
 
   function renderPage() {
     return(
@@ -43,7 +45,7 @@ function HomeContainer() {
         <div dangerouslySetInnerHTML={{__html: pageData.content}} />
       </main>
     )
-  }
+  };
 
   return (
     <>

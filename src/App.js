@@ -10,12 +10,14 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import GlobalStyle from './components/GlobalStyles';
 
 function App() {
   return(
     <>
       <Router>
-      <SiteNavigation />
+        <GlobalStyle />
+        <SiteNavigation />
         <Switch>
           <Route path='/about'>
             <AboutContainer />
