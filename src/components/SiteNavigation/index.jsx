@@ -8,7 +8,7 @@ const Nav = styled.nav`
 
     display: flex;
     justify-content: center;
-    background-color: gray;
+    border-bottom: 1px solid grey;
 `;
 
 const NavList = styled.ul`
@@ -26,10 +26,13 @@ const NavLink = styled.li`
     & > a {
         color: black;
         transition: .2s;
+        text-decoration: none;
+        border-bottom: 2px solid black;
+        padding-bottom: .2em;
     }
 
     & > a:hover {
-        color: green;
+        border-bottom: 2px solid pink;
     }
 `;
 

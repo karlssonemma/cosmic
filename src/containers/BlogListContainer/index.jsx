@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
 import styled from 'styled-components';
+import PageTitle from '../../components/PageTitle';
+import PostPreview from '../../components/PostPreview';
 
 
 function BlogListContainer() {
@@ -18,7 +20,7 @@ function BlogListContainer() {
     bucket.getObjects({
       type: 'blog-posts',
       limit: 5,
-      props: 'slug,title'
+      props: 'slug,title,content,metadata'
     })
 
     .then(data => {
@@ -42,19 +44,16 @@ function BlogListContainer() {
   function renderPage() {
     return(
       <main>
-        <h1>My Blog Posts</h1>
+        <PageTitle title={pageData.title} />
         <ul>
             {
                 pageData.objects.map(item => {
                     return (
-                        <li>
-                            <a href={`/blog/${item.slug}`}>{item.title}</a>
-                        </li>
+                        <PostPreview item={item} />
                     )
                 })
             }
         </ul>
-        <div dangerouslySetInnerHTML={{__html: pageData.content}} />
       </main>
     )
   };

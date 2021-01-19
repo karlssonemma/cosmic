@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
 import styled from 'styled-components';
+import PageTitle from '../../components/PageTitle';
 
 
 function BlogPostContainer({ match }) {
@@ -23,7 +24,6 @@ function BlogPostContainer({ match }) {
 
     .then(data => {
       setPageData(data.object);
-      console.log(data);
     })
 
     .catch(error => {
@@ -42,7 +42,7 @@ function BlogPostContainer({ match }) {
   function renderPage() {
     return(
       <main>
-        <h1>{pageData.title}</h1>
+        <PageTitle title={pageData.title} />
         <div dangerouslySetInnerHTML={{__html: pageData.content}} />
       </main>
     )

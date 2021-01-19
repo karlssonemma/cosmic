@@ -2,6 +2,8 @@ import Cosmic from 'cosmicjs';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+import PageTitle from '../../components/PageTitle';
+
 const Div = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -49,7 +51,7 @@ function AboutContainer() {
     function renderPage() {
         return(
             <main>
-                <h1>{pageData.title}</h1>
+                <PageTitle title={pageData.title} />
                 <Div dangerouslySetInnerHTML={{__html: pageData.content}} />
             </main>
         )

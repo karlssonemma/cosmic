@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
     main {
         margin: 0 auto;
-        padding: 2em 0;
+        padding: 2em 4em;
         width: 80vw;
         background-color: lightgreen;
 

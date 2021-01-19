@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
 import styled from 'styled-components';
+import PageTitle from '../../components/PageTitle';
 
 
 
@@ -42,7 +43,7 @@ function HomeContainer() {
   function renderPage() {
     return(
       <main>
-        <h1>{pageData.title}</h1>
+        <PageTitle title={pageData.title} />
         <div dangerouslySetInnerHTML={{__html: pageData.content}} />
       </main>
     )

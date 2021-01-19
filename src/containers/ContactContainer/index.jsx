@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
+import PageTitle from '../../components/PageTitle';
 
 function ContactContainer() {
 
@@ -37,7 +38,7 @@ function ContactContainer() {
     function renderContent() {
         return(
             <main>
-                <h1>{pageData.title}</h1>
+                <PageTitle title={pageData.title} />
                 <div dangerouslySetInnerHTML={{__html: pageData.content}} />
             </main>
         )
