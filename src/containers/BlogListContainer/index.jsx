@@ -3,8 +3,7 @@ import Cosmic from 'cosmicjs';
 import styled from 'styled-components';
 
 
-
-function HomeContainer() {
+function BlogListContainer() {
 
   const [pageData, setPageData] = useState(null);
 
@@ -16,13 +15,14 @@ function HomeContainer() {
       read_key: process.env.READ_KEY
     });
 
-    bucket.getObject({
-      slug: 'home',
-      props: 'slug,title,content'
+    bucket.getObjects({
+      type: 'blog-posts',
+      limit: 5,
+      props: 'slug,title'
     })
 
     .then(data => {
-      setPageData(data.object);
+      setPageData(data);
       console.log(data);
     })
 
@@ -42,7 +42,18 @@ function HomeContainer() {
   function renderPage() {
     return(
       <main>
-        <h1>{pageData.title}</h1>
+        <h1>My Blog Posts</h1>
+        <ul>
+            {
+                pageData.objects.map(item => {
+                    return (
+                        <li>
+                            <a href={`/blog/${item.slug}`}>{item.title}</a>
+                        </li>
+                    )
+                })
+            }
+        </ul>
         <div dangerouslySetInnerHTML={{__html: pageData.content}} />
       </main>
     )
@@ -55,4 +66,4 @@ function HomeContainer() {
   )
 };
 
-export default HomeContainer;
+export default BlogListContainer;

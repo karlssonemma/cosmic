@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Div = styled.div`
     display: grid;
-    grid-template-columns: repeat(2ç, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     & > p {
         color: green;

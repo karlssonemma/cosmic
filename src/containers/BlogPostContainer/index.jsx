@@ -3,8 +3,7 @@ import Cosmic from 'cosmicjs';
 import styled from 'styled-components';
 
 
-
-function HomeContainer() {
+function BlogPostContainer({ match }) {
 
   const [pageData, setPageData] = useState(null);
 
@@ -16,8 +15,9 @@ function HomeContainer() {
       read_key: process.env.READ_KEY
     });
 
+
     bucket.getObject({
-      slug: 'home',
+      slug: match.params.slug,
       props: 'slug,title,content'
     })
 
@@ -55,4 +55,4 @@ function HomeContainer() {
   )
 };
 
-export default HomeContainer;
+export default BlogPostContainer;

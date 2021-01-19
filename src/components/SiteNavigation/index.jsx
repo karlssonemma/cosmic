@@ -48,6 +48,9 @@ function SiteNavigation() {
                 <NavLink>
                     <Link to='/contact'>Contact</Link>
                 </NavLink>
+                <NavLink>
+                    <Link to='/blog'>Blog</Link>
+                </NavLink>
             </NavList>
         </Nav>
     )
